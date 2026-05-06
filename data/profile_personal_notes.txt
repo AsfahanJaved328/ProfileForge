@@ -1,0 +1,43 @@
+Name:
+Asfahan Javed
+
+Target roles:
+Python Developer
+Frontend Developer
+
+Location:
+Attock, Pakistan
+
+Education:
+BS Computer Science
+COMSATS University Islamabad, Attock Campus
+Currently in 5th semester
+Expected graduation: 2028
+
+GitHub:
+AsfahanJaved328
+
+Writing tone:
+Formal
+
+Personal direction:
+Curious learner
+Enjoys learning new things from the internet
+Interested in practical software development
+Wants to keep growing through projects and real implementation
+Enjoys the idea of exploring the world and experiencing nature
+
+Project shortlist:
+AetherGrid
+SKYCAST
+virtual-interior-designer-web
+interop-system
+
+Project notes:
+AetherGrid is a live camera website that opens cameras from around the world.
+SKYCAST is a weather application with a strong frontend and a working backend that uses an API.
+virtual-interior-designer-web is an AI-based interior design project that places furniture and related objects into a picture. It is still under construction.
+interop-system is a blockchain-based system that demonstrates how money can be tokenized and transferred from one place to another.
+
+Remove from profile focus:
+auatimepieces.github.io

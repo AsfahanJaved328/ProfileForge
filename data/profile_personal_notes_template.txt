@@ -1,0 +1,27 @@
+Personal headline:
+Computer Science Student | Python | Machine Learning | Web Development
+
+Personal summary:
+I build practical software projects and learn by implementing complete systems from scratch.
+I enjoy Python, clean project structure, debugging, and writing clear technical explanations.
+
+Skills:
+Python
+PyTorch
+HTML
+CSS
+JavaScript
+Git
+
+Project lines:
+Built a small character-level language model in Python and PyTorch.
+Created a personal portfolio website to present projects and technical skills.
+Improved project usability by adding scripts, checkpoints, and simple documentation.
+
+Achievement lines:
+Learned to debug environment issues on Windows and fix broken Python launcher files.
+Built end-to-end projects that combine coding, testing, and explanation.
+
+Usage:
+Add your own real lines here.
+Then copy the final text into data/profile_input.txt and train again with step3_train_more.bat.

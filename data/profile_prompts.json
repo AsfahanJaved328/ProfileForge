@@ -1,0 +1,38 @@
+{
+  "headline": {
+    "prompt": "Headline candidate:\n",
+    "max_new_tokens": 110,
+    "temperature": 0.76,
+    "top_k": 18,
+    "top_p": 0.9,
+    "repetition_penalty": 1.1,
+    "samples": 4
+  },
+  "about": {
+    "prompt": "About candidate:\n",
+    "max_new_tokens": 320,
+    "temperature": 0.82,
+    "top_k": 20,
+    "top_p": 0.92,
+    "repetition_penalty": 1.08,
+    "samples": 3
+  },
+  "project_bullet": {
+    "prompt": "Project bullet candidate:\n",
+    "max_new_tokens": 170,
+    "temperature": 0.78,
+    "top_k": 18,
+    "top_p": 0.9,
+    "repetition_penalty": 1.08,
+    "samples": 4
+  },
+  "skills_summary": {
+    "prompt": "Skills summary candidate:\n",
+    "max_new_tokens": 170,
+    "temperature": 0.8,
+    "top_k": 18,
+    "top_p": 0.9,
+    "repetition_penalty": 1.08,
+    "samples": 3
+  }
+}

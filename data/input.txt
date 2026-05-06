@@ -1,0 +1,74 @@
+A small model sits by the window and reads the rainy city at dawn.
+It learns from every mark: letters, spaces, commas, and quiet lines.
+When the page turns, the model guesses what symbol should come next.
+Sometimes it is right, and sometimes it misses by a mile.
+
+The room is still, but the text is busy.
+Birds cross the pale sky.
+Street lamps fade.
+People open shops, sweep steps, and trade stories near the market gate.
+The model does not know the world directly.
+It only knows patterns inside the text that it has seen.
+
+A baker folds dough before sunrise.
+A painter mixes blue with gold.
+A student writes notes in a narrow notebook and underlines hard ideas.
+A traveler counts coins, checks a map, and waits for the first bus.
+Every sentence adds rhythm.
+Every rhythm becomes memory.
+
+The quick brown fox jumps over the lazy dog while bright jazz music plays.
+Five quacking zephyrs jolt my wax bed, and the puzzled crowd laughs.
+Pack my box with five dozen liquor jugs before the storm begins.
+These strange lines help cover the alphabet from edge to edge.
+
+Numbers also belong here: 0 1 2 3 4 5 6 7 8 9.
+Short words matter.
+Long words matter.
+Names, pauses, and line breaks matter too.
+
+If the model sees "the rain", it may expect "y city" or " falls".
+If it sees "Every", it may expect " sentence" or " rhythm".
+The guess is never magic.
+It is probability shaped by repetition.
+
+Tiny models are not wise.
+They are useful because they reveal the mechanics of learning.
+An embedding table turns ids into vectors.
+Attention compares the current character with earlier characters.
+Feed-forward layers reshape those signals.
+The final linear layer scores every possible next character.
+
+Training is a loop.
+Sample a batch.
+Run the model.
+Measure the loss.
+Backpropagate the error.
+Update the weights.
+Repeat with patience.
+
+By noon the city is loud.
+By evening the streets cool down.
+By night the page glows under a desk lamp.
+The small model keeps reading and keeps guessing the next mark.
+
+At the cafe, a naive reader studies a resume beside a facade of blue tiles.
+At the cafe, a naive reader studies a resume beside a facade of blue tiles.
+At the cafe, a naive reader studies a resume beside a facade of blue tiles.
+At the cafe, a naive reader studies a resume beside a facade of blue tiles.
+At the cafe, a naive reader studies a resume beside a facade of blue tiles.
+À noon, Élodie writes "façade", "naïve", and "résumé" in a narrow notebook.
+Señor Iñaki says "coöperate" while Chloë orders crème brûlée and café au lait.
+Über bright lamps reflect on the hôtel wall while a piñata swings above the patio.
+Œuvres, touché, soupçon, and jalapeño stretch the model beyond plain ASCII.
+
+یہ ایک چھوٹا ماڈل ہے۔
+یہ اگلا حرف اندازہ لگاتا ہے۔
+بارش کے بعد شہر خاموش ہے، مگر گلی میں روشنی باقی ہے۔
+کیا یہ لفظ، وقفہ، اور سوالیہ نشان سمجھ سکتا ہے؟
+آج شام احمد نے کہا: "تجربہ جاری رکھو۔"
+یہ ایک چھوٹا ماڈل ہے۔
+یہ اگلا حرف اندازہ لگاتا ہے۔
+بارش کے بعد شہر خاموش ہے، مگر گلی میں روشنی باقی ہے۔
+کیا یہ لفظ، وقفہ، اور سوالیہ نشان سمجھ سکتا ہے؟
+آج شام احمد نے کہا: "تجربہ جاری رکھو۔"
