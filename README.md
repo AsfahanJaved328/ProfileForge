@@ -1,171 +1,119 @@
 # ProfileForge
 
-ProfileForge is a personal profile-writing project built in Python and
-PyTorch. It trains a small character-level autoregressive language model that
-learns from structured profile text and then generates profile-related writing
-such as headlines, about sections, and project bullets.
+ProfileForge is a personal profile-writing project built with Python and
+PyTorch. It trains a small character-level transformer on structured
+professional writing and generates LinkedIn-style profile text such as:
 
-It is intentionally small and readable:
+- headlines
+- about sections
+- project bullets
+- profile summaries
 
-- `src/data.py` builds the character vocabulary and training batches.
-- `src/model.py` implements a decoder-only transformer from scratch.
-- `train.py` runs gradient descent with cross-entropy loss.
-- `generate.py` loads a checkpoint and samples new text.
-- `data/charset.txt` defines the full allowed vocabulary.
-- `media/Flonnect Recording - May 07, 2026.mp4` contains the demo video.
+The project was built as a practical learning exercise in model training,
+checkpointing, prompt design, and local text generation.
 
-## Project Layout
+## What It Does
+
+- trains a character-level autoregressive transformer
+- saves both best and latest checkpoints
+- resumes training automatically
+- generates structured profile-writing candidates
+- includes a local demo video in `media/`
+
+## Main Files
+
+- `train.py`: training entry point
+- `generate.py`: raw text generation
+- `profile_writer.py`: structured profile generation
+- `src/model.py`: transformer model
+- `src/data.py`: dataset and vocabulary handling
+- `data/profile_input.txt`: profile-focused training corpus
+- `data/profile_personal_notes.txt`: personal notes used to steer output
+- `data/profile_prompts.json`: prompt presets for each profile section
+
+## Demo Video
+
+The demo recording is included here:
+
+- `media/Flonnect Recording - May 07, 2026.mp4`
+
+## Project Structure
 
 ```text
-tiny-char-llm/
-  .venv/
+ProfileForge/
   checkpoints/
   data/
-    charset.txt
-    input.txt
     profile_charset.txt
     profile_input.txt
     profile_personal_notes.txt
     profile_prompts.json
   media/
     Flonnect Recording - May 07, 2026.mp4
+  outputs/
   src/
-    __init__.py
-    config.py
-    data.py
-    model.py
-    train_utils.py
   tests/
-    test_smoke.py
-  .gitignore
   generate.py
   profile_writer.py
-  README.md
-  requirements.txt
   train.py
+  README.md
+  SIMPLE_STEPS.md
 ```
 
-## Setup
+## Quick Start
 
-The local environment already exists at `D:\tiny-char-llm\.venv`.
-
-Install dependencies:
+Create a virtual environment and install dependencies:
 
 ```powershell
-D:\tiny-char-llm\.venv\Scripts\python.exe -m pip install -r D:\tiny-char-llm\requirements.txt
+python -m venv .venv
+.\.venv\Scripts\python.exe -m pip install -r requirements.txt
 ```
 
-## Train
+## Simple Workflow
 
-```powershell
-cd D:\tiny-char-llm
-.\.venv\Scripts\python.exe .\train.py
-```
-
-Simple workflow:
+Run these from the project folder:
 
 ```cmd
-cd /d D:\tiny-char-llm
 step1_test.bat
 step2_train_short.bat
 step3_train_more.bat
 step6_profile_writer.bat
 ```
 
-There is also a short guide in `SIMPLE_STEPS.md`.
+What each step does:
 
-By default, `train.py` auto-resumes from `checkpoints/last.pt` when that file
-exists. This means repeated runs continue from the most recent saved training
-state instead of starting from random weights.
+- `step1_test.bat`: smoke tests
+- `step2_train_short.bat`: short training run
+- `step3_train_more.bat`: continue profile-model training
+- `step6_profile_writer.bat`: generate structured profile candidates
 
-Useful overrides:
+Generated output is saved to:
 
-```powershell
-.\.venv\Scripts\python.exe .\train.py --max-iters 800 --batch-size 16 --block-size 48
-```
+- `outputs/profile_samples.txt`
 
-Resume from a saved checkpoint:
+## Current Model Direction
 
-```powershell
-.\.venv\Scripts\python.exe .\train.py --resume-from checkpoints/best.pt --max-iters 300
-```
+The current profile-writing model is trained mainly for English professional
+writing and is intended for:
 
-Force a fresh run that ignores existing checkpoints:
+- LinkedIn profile improvement
+- project summaries
+- resume-style bullet drafting
+- portfolio presentation experiments
 
-```powershell
-.\.venv\Scripts\python.exe .\train.py --fresh-start
-```
+## Notes
 
-Train using only characters found in the dataset instead of `data/charset.txt`:
+- this is a local educational project, not a production LLM
+- it is intentionally small enough to run on CPU
+- output quality depends heavily on the quality of the profile dataset
+- better personal data in `data/profile_input.txt` improves results
 
-```powershell
-.\.venv\Scripts\python.exe .\train.py --charset-path ""
-```
+## Why This Project Matters
 
-## Generate Text
+ProfileForge shows:
 
-```powershell
-cd D:\tiny-char-llm
-.\.venv\Scripts\python.exe .\generate.py --prompt "A small model" --max-new-tokens 200
-```
-
-Windows `cmd.exe` launchers:
-
-```cmd
-D:\tiny-char-llm\run_train_utf8.bat
-D:\tiny-char-llm\run_generate_utf8.bat --prompt "A small model"
-```
-
-## Profile Writer
-
-For LinkedIn-style output, use the structured profile generator:
-
-```cmd
-cd /d D:\tiny-char-llm
-step6_profile_writer.bat
-```
-
-This produces section-based candidates for:
-
-- headline
-- about section
-- project bullets
-- skills summary
-
-The output is also saved to `outputs/profile_samples.txt`.
-
-## Smoke Test
-
-```powershell
-cd D:\tiny-char-llm
-.\.venv\Scripts\python.exe -m unittest tests.test_smoke -v
-```
-
-## How The Model Learns
-
-1. The text in `data/input.txt` is split into unique characters.
-2. Each character is mapped to an integer id.
-3. The model reads fixed-length windows of ids.
-4. For every position, it predicts the id of the next character.
-5. Cross-entropy loss measures how wrong the predictions are.
-6. AdamW updates the model weights to reduce that loss.
-
-The project uses a tiny decoder-only transformer with causal masking. Causal
-masking means each character can only look at characters to its left when it
-makes a prediction.
-
-By default, the model uses a predefined multilingual charset from
-`data/charset.txt`. It includes ASCII, accented Latin characters, and a base
-Urdu character set with Urdu punctuation. That means the vocabulary size can be
-larger than the set of characters that happen to appear in `data/input.txt`.
-This expands what the model can represent, but it still learns best from
-characters that are actually present in the training corpus.
-
-If you change the charset, old checkpoints may become incompatible because the
-embedding table and output layer dimensions depend on vocabulary size. After a
-charset expansion, train a fresh checkpoint or use a new checkpoint path.
-
-## Replacing The Dataset
-
-You can replace `data/input.txt` with any plain text file. Better training data
-usually improves the generated text more than making the model slightly bigger.
+- practical Python and PyTorch work
+- model training from scratch
+- local checkpoint management
+- dataset shaping for a specific use case
+- structured generation workflows
+- debugging and iteration on Windows
