@@ -9,6 +9,12 @@ professional writing and generates LinkedIn-style profile text such as:
 - project bullets
 - profile summaries
 
+## Demo Video
+
+Watch the project demo here:
+
+- [Flonnect Recording - May 07, 2026.mp4](./Flonnect%20Recording%20-%20May%2007,%202026.mp4)
+
 The project was built as a practical learning exercise in model training,
 checkpointing, prompt design, and local text generation.
 
@@ -33,9 +39,10 @@ checkpointing, prompt design, and local text generation.
 
 ## Demo Video
 
-The demo recording is included here:
+The demo recording is included in the repository root so it appears directly on
+the GitHub front page:
 
-- `media/Flonnect Recording - May 07, 2026.mp4`
+- `Flonnect Recording - May 07, 2026.mp4`
 
 ## Project Structure
 
@@ -47,11 +54,10 @@ ProfileForge/
     profile_input.txt
     profile_personal_notes.txt
     profile_prompts.json
-  media/
-    Flonnect Recording - May 07, 2026.mp4
   outputs/
   src/
   tests/
+  Flonnect Recording - May 07, 2026.mp4
   generate.py
   profile_writer.py
   train.py
